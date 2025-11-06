@@ -26,15 +26,19 @@ const Body = () => {
       console.error(err);
     }
   };
-
+   // after the page loaded useffect works
   useEffect(() => {
     fetchUser();
   }, []);
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <NavBar />
-      <Outlet />
+      
+      <main className="flex-grow">
+        <Outlet />
+      </main>
+      
       <Footer />
     </div>
   );

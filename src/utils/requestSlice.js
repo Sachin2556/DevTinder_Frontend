@@ -14,6 +14,6 @@ import { createSlice } from "@reduxjs/toolkit";
     },
  });
 
- export const { addRequests, removeRequests} = requestSlice.actions;
+ export const { addRequests, removeRequest} = requestSlice.actions;
 
  export default requestSlice.reducer;

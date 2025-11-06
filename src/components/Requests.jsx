@@ -1,7 +1,7 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { addRequests, removeRequests } from "../utils/requestSlice";
+import { addRequests, removeRequest } from "../utils/requestSlice";
 import { useEffect } from "react";
 
 const Requests = () => {
@@ -20,7 +20,7 @@ const Requests = () => {
         { withCredentials: true }
       );
       // Remove the specific request from the state
-      dispatch(removeRequests(_id));
+      dispatch(removeRequest(_id));
       
     } catch (err) {
       console.error("Error reviewing request:", err);
@@ -59,12 +59,12 @@ const Requests = () => {
         return (
           <div
             key={_id}
-            className="flex justify-between items-center m-4 p-4 rounded-lg bg-base-300"
+            className="flex  m-4 p-4 rounded-lg bg-base-300 w-1/2 mx-auto"
           >
             <div>
               <img
                 alt="photo"
-                className="w-20 h-20 rounded-full"
+                className="w-20 h-20 rounded-full object-cover"
                 src={photoUrl}
               />
             </div>
@@ -77,13 +77,13 @@ const Requests = () => {
             </div>
             <div>
               <button
-                className="btn btn-primary mx-2"
+                className="btn btn-primary my-2 mx-2"
                 onClick={() => reviewRequest("rejected", request._id)}
               >
                 Reject
               </button>
               <button
-                className="btn btn-secondary mx-2"
+                className="btn btn-secondary my-2 mx-2"
                 onClick={() => reviewRequest("accepted", request._id)}
               >
                 Accept
